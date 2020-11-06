@@ -33,4 +33,4 @@ sed -e "s#{{CLOUDFLARED_LOCATION}}#${BINARY_LOCATION}#" cloudflaredns.service.te
 
 info "Enabling cloudflaredns.service"
 info "Check status with 'systemctl status cloudflaredns'"
-sudo systemctl enable cloudflaredns.service
+systemctl enable cloudflaredns.service

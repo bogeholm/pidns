@@ -6,14 +6,17 @@ source logging.sh
 # https://github.com/cloudflare/cloudflared/releases/download/2020.10.2/cloudflared-linux-armv6
 DEFAULT_VERSION="2020.10.2"
 DEFAULT_DESTINATION="/usr/local/bin"
+DEFAULT_ARCHITECTURE="linux-armv6"
 
-while getopts ":v:d:" opt; do
+while getopts ":v:d:a:" opt; do
     case $opt in
-        v) VERSION="$OPTARG"
+        a) ARCHITECTURE="$OPTARG"
         ;;
         d) DESTINATION="$OPTARG"
         ;;
-        \?) echo "Invalid option '$OPTARG'. Use: 'download.sh -v -d'"
+        v) VERSION="$OPTARG"
+        ;;
+        \?) echo "Invalid option '$OPTARG'. Use: 'download.sh -a -d -v'"
         exit 1
         ;;
     esac
@@ -27,9 +30,13 @@ if [[ -z "${DESTINATION}" ]]; then
     DESTINATION=${DEFAULT_DESTINATION}
 fi
 
+if [[ -z "${ARCHITECTURE}" ]]; then
+    ARCHITECTURE=${DEFAULT_ARCHITECTURE}
+fi
+
 info "Version: ${VERSION}"
 info "Destination: ${DESTINATION}"
-URL="https://github.com/cloudflare/cloudflared/releases/download/${VERSION}/cloudflared-linux-armv6"
+URL="https://github.com/cloudflare/cloudflared/releases/download/${VERSION}/cloudflared-${ARCHITECTURE}"
 
 pushd tmp/
     info "Downloading ${URL}..."

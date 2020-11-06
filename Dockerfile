@@ -7,9 +7,11 @@ RUN apt-get update \
     ca-certificates
 
 RUN echo "$(systemctl --version)"
+RUN echo "$(curl --version)"
 
 WORKDIR /home/ubuntu
 COPY . ./
 
 RUN bash download.sh -a "linux-amd64"
 RUN bash install.sh
+#RUN bash test.sh

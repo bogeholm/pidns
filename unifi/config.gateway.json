@@ -5,10 +5,7 @@
             "1": {
                "description": "DNS Redirect",
                "destination": {
-                  "address": [
-                     "!192.168.3.1", 
-                     "!192.168.3.20"
-                  ],
+                  "address": "!192.168.3.1",
                   "port": "53"
                },
                "inbound-interface": "eth1",

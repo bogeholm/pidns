@@ -18,7 +18,7 @@ https://127.0.0.1:8443/manage/site/<site_ID>/dashboard
 So on a vanilla setup, that would be
 
 ```bash
-/usr/lib/unifi/data/sites/config.gateway.json
+/usr/lib/unifi/data/sites/default/config.gateway.json
 ```
 
 ### Ownership 

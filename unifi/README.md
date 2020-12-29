@@ -48,3 +48,5 @@ chown unifi:unifi config.gateway.json
 
 - https://gist.github.com/troyfontaine/a0a0098d6a8c333e5316ebf16db1c425
 - https://forum.netgate.com/topic/139457/transparently-intercept-and-redirect-dns-traffic-to-an-internal-dns/4
+- https://raw.githubusercontent.com/Sekhan/TheGreatWall/master/TheGreatWall.txt
+- https://www.reddit.com/r/Ubiquiti/comments/ii3lan/unifi_pihole_doing_it_right_with_usg/

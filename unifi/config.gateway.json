@@ -1,0 +1,25 @@
+{
+   "service": {
+      "nat": {
+         "rule": {
+            "1": {
+               "description": "DNS Redirect",
+               "destination": {
+                  "address": [
+                     "!192.168.3.1", 
+                     "!192.168.3.20"
+                  ],
+                  "port": "53"
+               },
+               "inbound-interface": "eth1",
+               "inside-address": {
+                  "address": "192.168.3.20"
+               },
+               "log": "disable",
+               "protocol": "tcp_udp",
+               "type": "destination"
+            }
+         }
+      }
+   }
+}

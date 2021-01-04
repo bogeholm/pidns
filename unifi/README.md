@@ -43,6 +43,8 @@ chown unifi:unifi config.gateway.json
 
 - The [`config.gateway.json` file](https://help.ui.com/hc/en-us/articles/215458888-UniFi-Advanced-USG-Configuration)
 - [Location of `config.gateway.json`](https://help.ui.com/hc/en-us/articles/115004872967)
+- https://help.ui.com/hc/en-us/articles/115010254227-UniFi-USG-Firewall-How-to-Disable-InterVLAN-Routing
+- https://community.ui.com/questions/How-to-force-user-to-reconnect-after-changing-static-local-ip/333b5ad5-24f6-4f1d-b43c-dfefb6e5129c
 
 ### Other
 

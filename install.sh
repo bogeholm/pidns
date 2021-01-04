@@ -31,6 +31,6 @@ ok "'${BINARY_LOCATION}/cloudflared --version' succeeded: ${cloudflared_isalive_
 info "Creating '/etc/systemd/system/cloudflaredns.service' ..."
 sed -e "s#{{CLOUDFLARED_LOCATION}}#${BINARY_LOCATION}#" cloudflaredns.service.template > /etc/systemd/system/cloudflaredns.service
 
-info "Enabling cloudflaredns.service"
-info "Check status with 'systemctl status cloudflaredns'"
 systemctl enable cloudflaredns.service
+ok "Enabled cloudflaredns.service"
+info "Reboot - and then check status with 'systemctl status cloudflaredns'"

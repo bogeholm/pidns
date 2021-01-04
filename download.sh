@@ -52,5 +52,5 @@ pushd tmp/
     ok "$cloudflared_downloaded_version"
 popd
 
-info "Moving cloudflared to ${DESTINATION}"
 mv tmp/cloudflared "${DESTINATION}/cloudflared"
+ok "Installed cloudflared to ${DESTINATION}"

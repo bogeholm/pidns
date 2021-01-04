@@ -6,11 +6,12 @@
 
 ```bash
 git clone https://github.com/bogeholm/pidns.git && cd pidns
-./download.sh
-./install.sh
+sudo ./download.sh  # sudo required to move binary to /usr/local/bin
+sudo ./install.sh   # sudo required to write to /etc/systemd/system/cloudflaredns.service
+sudo reboot
+# Get a beer or coffee
 ./test.sh
 ```
-
 
 ### Install [Pi-hole](https://pi-hole.net/)
 

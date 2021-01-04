@@ -14,7 +14,6 @@ fi
 
 ok "'cloudflared --version' succeeded: ${cloudflared_isalive_check}"
 
-
 # Check service status
 cloudflared_service_check=$(systemctl is-active cloudflaredns)
 

@@ -27,6 +27,12 @@ nmcli d wifi list
 nmcli d wifi connect <wifi> password <password>
 ```
 
+### Useful Raspberry tools
+
+```bash
+sudo apt-get install aptitude jq net-tools nmap mosh ripgrep
+```
+
 
 ## Documentation
 

@@ -3,8 +3,8 @@
 source logging.sh
 
 # Example URL
-# https://github.com/cloudflare/cloudflared/releases/download/2020.10.2/cloudflared-linux-armv6
-DEFAULT_VERSION="2020.10.2"
+# https://github.com/cloudflare/cloudflared/releases/download/2020.11.11/cloudflared-linux-armv6
+DEFAULT_VERSION="2020.11.11"
 DEFAULT_DESTINATION="/usr/local/bin"
 DEFAULT_ARCHITECTURE="linux-armv6"
 

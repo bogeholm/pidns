@@ -33,6 +33,8 @@ rm -r fonts
 sh <(curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs)
 source $HOME/.cargo/env
 cargo install starship
+# Optionally, if starship is not found at login
+sudo mv /home/ubuntu/.cargo/bin/starship /usr/local/bin/starship
 ```
 
 ### Starship config

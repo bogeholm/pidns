@@ -16,7 +16,7 @@ sudo reboot
 ### Install [Pi-hole](https://pi-hole.net/)
 
 ```bash
-bash <(curl -fL https://install.pi-hole.net)
+curl --proto '=https' --tlsv1.2 -sSfL https://install.pi-hole.net | bash
 ```
 
 

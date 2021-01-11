@@ -1,0 +1,5 @@
+# https://developers.cloudflare.com/1.1.1.1/dns-over-https/request-structure
+https://cloudflare-dns.com/dns-query
+
+# https://wiki.mozilla.org/Trusted_Recursive_Resolver
+https://mozilla.cloudflare-dns.com/dns-query

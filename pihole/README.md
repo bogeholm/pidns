@@ -13,6 +13,14 @@ rg -v '^#' whitelist.txt | xargs -I {} pihole -w {}
 
 Check `/etc/pihole/whitelist.txt` and confirm the domains were added.
 
+## Update gravity
+After updating white- or blacklists, run `pihole -g`
+
+## Check status of specific domain
+```bash
+pihole -q <domain>
+```
+
 # Documentation
 - https://docs.pi-hole.net/guides/whitelist-blacklist/
 - https://discourse.pi-hole.net/t/what-files-does-pi-hole-use/1684

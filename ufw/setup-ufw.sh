@@ -15,5 +15,5 @@ ufw allow proto tcp from 192.168.3.0/24 to any port 80,443
 ufw allow proto tcp from 192.168.9.0/24 to any port 80,443
 
 # DNS
-sudo ufw allow 53/tcp
-sudo ufw allow 53/udp
+ufw allow 53/tcp
+ufw allow 53/udp

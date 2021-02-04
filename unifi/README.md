@@ -37,16 +37,22 @@ ls -l
 chown unifi:unifi config.gateway.json
 ```
 
-## Documentation
+## DNS over TLS
+- https://community.ui.com/questions/Block-outgoing-traffic-I-dont-understand-/7008e42e-7b4f-4896-ad1c-24731ae9e05d
+- https://dnsprivacy.org/wiki/display/DP/DNS+Privacy+Clients#DNSPrivacyClients-Commandlineclients
+- https://www.knot-resolver.cz/download/
+- https://launchpad.net/ubuntu/bionic/+package/knot-dnsutils
 
-### Unifi
+# Documentation
+
+## Unifi
 
 - The [`config.gateway.json` file](https://help.ui.com/hc/en-us/articles/215458888-UniFi-Advanced-USG-Configuration)
 - [Location of `config.gateway.json`](https://help.ui.com/hc/en-us/articles/115004872967)
 - https://help.ui.com/hc/en-us/articles/115010254227-UniFi-USG-Firewall-How-to-Disable-InterVLAN-Routing
 - https://community.ui.com/questions/How-to-force-user-to-reconnect-after-changing-static-local-ip/333b5ad5-24f6-4f1d-b43c-dfefb6e5129c
 
-### Other
+## Other
 
 - https://gist.github.com/troyfontaine/a0a0098d6a8c333e5316ebf16db1c425
 - https://forum.netgate.com/topic/139457/transparently-intercept-and-redirect-dns-traffic-to-an-internal-dns/4

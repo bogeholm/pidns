@@ -5,11 +5,12 @@
 - Read [`setup-ufw.sh`](setup-ufw.sh) first and make any required edits!
 
 ```bash
-sudo ufw status
+sudo ufw status verbose
 
 chmod +x setup-ufw.sh
 sudo ./setup-ufw.sh
-sudo ufw status
+
+sudo ufw status verbose
 sudo ufw enable
 ```
 

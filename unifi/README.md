@@ -46,6 +46,7 @@ chown unifi:unifi config.gateway.json
 
 ### Create blocking rule
 
+```yaml
 - Type: LAN IN  # Traffic entering the LAN interface
 - Description: Block DNS over TLS
 - Rule applied: after
@@ -56,6 +57,7 @@ chown unifi:unifi config.gateway.json
 - Destination: Address/Port Group
 - Port Group: <Create group with port 853>
 - Enable logging: <up to you>
+```
 
 ### Test
 
@@ -67,6 +69,14 @@ telnet 9.9.9.9 853
 
 # Should succeed - not blocked
 telnet 9.9.9.9 443
+```
+
+If you enabled logging when you set up the rule, you should see a log entry:
+```bash
+# SSH into the USG
+tail -f /var/log/messages
+
+Feb  4 21:59:05 USG-Pro-4One kernel: [LAN_IN-4000-D]IN=eth0 OUT=eth2 MAC=<snip> SRC=192.168.3.52 DST=9.9.9.9 LEN=64 TOS=0x00 PREC=0x00 TTL=63 ID=0 DF PROTO=TCP SPT=50970 DPT=853 WINDOW=65535 RES=0x00 SYN URGP=0 
 ```
 
 # Documentation

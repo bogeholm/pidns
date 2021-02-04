@@ -38,10 +38,36 @@ chown unifi:unifi config.gateway.json
 ```
 
 ## DNS over TLS
+
 - https://community.ui.com/questions/Block-outgoing-traffic-I-dont-understand-/7008e42e-7b4f-4896-ad1c-24731ae9e05d
 - https://dnsprivacy.org/wiki/display/DP/DNS+Privacy+Clients#DNSPrivacyClients-Commandlineclients
 - https://www.knot-resolver.cz/download/
 - https://launchpad.net/ubuntu/bionic/+package/knot-dnsutils
+
+### Create blocking rule
+
+- Type: LAN IN  # Traffic entering the LAN interface
+- Description: Block DNS over TLS
+- Rule applied: after
+- Action: Drop
+- IPv4 protocol: All
+- Source: Network
+- Network: <choose relevant network>
+- Destination: Address/Port Group
+- Port Group: <Create group with port 853>
+- Enable logging: <up to you>
+
+### Test
+
+Make a `telnet` connection to [a DNS-over-TLS provider](https://dnsprivacy.org/wiki/display/DP/DNS+Privacy+Public+Resolvers) from the affected network:
+
+```bash
+# Should not succeed - blocked
+telnet 9.9.9.9 853
+
+# Should succeed - not blocked
+telnet 9.9.9.9 443
+```
 
 # Documentation
 

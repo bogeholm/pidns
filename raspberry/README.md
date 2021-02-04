@@ -4,7 +4,7 @@
 
 ```bash
 # `pkg-config` and `libssl-dev` required by `cargo install starship`
-sudo apt-get install aptitude build-essential jq libssl-dev net-tools network-manager nmap mosh pkg-config ripgrep unzip zsh
+sudo apt-get install aptitude build-essential jq libssl-dev net-tools network-manager nmap pkg-config ripgrep unzip zsh
 ```
 
 ## Starship

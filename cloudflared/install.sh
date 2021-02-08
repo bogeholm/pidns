@@ -1,8 +1,7 @@
-#! /bin/bash
+#! /usr/bin/env bash
 
+source common.sh
 source logging.sh
-
-DEFAULT_BINARY_LOCATION="/usr/local/bin"
 
 while getopts "b:" opt; do
     case $opt in
@@ -16,7 +15,7 @@ while getopts "b:" opt; do
 done
 
 if [[ -z "${BINARY_LOCATION}" ]]; then
-    BINARY_LOCATION=${DEFAULT_BINARY_LOCATION}
+    BINARY_LOCATION=${DEFAULT_CLOUDFLARED_DESTINATION}
 fi
 
 info "Assuming cloudflared is here: ${BINARY_LOCATION}"
@@ -26,6 +25,7 @@ if [[ $? != 0 ]]; then
     error "Could not locate binary: '${BINARY_LOCATION}/cloudflared --version' failed"
     exit 1
 fi
+
 ok "'${BINARY_LOCATION}/cloudflared --version' succeeded: ${cloudflared_isalive_check}"
 
 info "Creating '/etc/systemd/system/cloudflaredns.service' ..."

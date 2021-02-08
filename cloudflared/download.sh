@@ -1,12 +1,7 @@
-#! /bin/bash
+#! /usr/bin/env bash
 
+source common.sh
 source logging.sh
-
-# Example URL
-# https://github.com/cloudflare/cloudflared/releases/download/2020.11.11/cloudflared-linux-armv6
-DEFAULT_VERSION="2020.11.11"
-DEFAULT_DESTINATION="/usr/local/bin"
-DEFAULT_ARCHITECTURE="linux-armv6"
 
 while getopts ":v:d:a:" opt; do
     case $opt in
@@ -23,21 +18,22 @@ while getopts ":v:d:a:" opt; do
 done
 
 if [[ -z "${VERSION}" ]]; then
-    VERSION=${DEFAULT_VERSION}
+    VERSION=${DEFAULT_CLOUDFLARED_VERSION}
 fi
 
 if [[ -z "${DESTINATION}" ]]; then
-    DESTINATION=${DEFAULT_DESTINATION}
+    DESTINATION=${DEFAULT_CLOUDFLARED_DESTINATION}
 fi
 
 if [[ -z "${ARCHITECTURE}" ]]; then
-    ARCHITECTURE=${DEFAULT_ARCHITECTURE}
+    ARCHITECTURE=${DEFAULT_CLOUDFLARED_ARCHITECTURE}
 fi
 
 info "Version: ${VERSION}"
 info "Destination: ${DESTINATION}"
 URL="https://github.com/cloudflare/cloudflared/releases/download/${VERSION}/cloudflared-${ARCHITECTURE}"
 
+mkdir tmp
 pushd tmp/
     info "Downloading ${URL}..."
     curl --proto '=https' --tlsv1.2 -fL "${URL}" --output cloudflared
@@ -53,4 +49,5 @@ pushd tmp/
 popd
 
 mv tmp/cloudflared "${DESTINATION}/cloudflared"
+rm -r tmp
 ok "Installed cloudflared to ${DESTINATION}"

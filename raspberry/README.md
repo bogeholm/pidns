@@ -1,10 +1,20 @@
 # Raspberry Pi Configuration Suggestions
 
+Instructions below are tested on my [Raspberry Pi 3 Model B+](https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/) running [Ubuntu Server 20.04.2 LTS](https://ubuntu.com/download/raspberry-pi). They'll likely work on [Raspberry Pi OS](https://www.raspberrypi.org/software/) as well.
+
 ## Useful Raspberry tools
 
 ```bash
-# `pkg-config` and `libssl-dev` required by `cargo install starship`
+# `pkg-config` and `libssl-dev` required by `cargo install starship` below
 sudo apt-get install aptitude build-essential jq libssl-dev net-tools network-manager nmap pkg-config ripgrep unzip zsh
+```
+
+## Enabling WiFi (if necessary)
+
+```bash
+sudo aptitude install network-manager
+nmcli d wifi list
+nmcli d wifi connect <wifi> password <password>
 ```
 
 ## Starship
@@ -15,14 +25,19 @@ Use [FiraCode](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/
 
 ```bash
 mkdir fonts
-cd fonts  # or `pushd fonts`
+pushd fonts
+
 curl -fLo FiraCode.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip
+
 unzip FiraCode.zip
+
 # https://linuxconfig.org/how-to-install-fonts-on-ubuntu-20-04-focal-fossa-linux
 mkdir -p "/home/$(whoami)/.local/share/fonts"
+
 # https://unix.stackexchange.com/questions/56903/
 ls | rg ttf | rg Mono | rg Fira | rg -v Windows | xargs -I{} mv {} "/home/$(whoami)/.local/share/fonts"
-cd ..  # or `popd`
+
+popd
 rm -r fonts
 ```
 
@@ -33,7 +48,8 @@ rm -r fonts
 sh <(curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs)
 source $HOME/.cargo/env
 cargo install starship
-# Optionally, if starship is not found at login
+
+# If starship is not found at login:
 sudo mv /home/ubuntu/.cargo/bin/starship /usr/local/bin/starship
 ```
 

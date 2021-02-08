@@ -1,4 +1,10 @@
-# Pihole whitelists and blacklists
+# Install [Pi-hole](https://pi-hole.net/)
+
+```bash
+curl --proto '=https' --tlsv1.2 -sSfL https://install.pi-hole.net | bash
+```
+
+## Pihole whitelists and blacklists
 
 ## DNS over HTTPS
 Blacklists - add in the admin UI

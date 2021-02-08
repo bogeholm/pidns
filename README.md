@@ -1,5 +1,5 @@
 # Pi DNS
-Set up your Raspberry Pi as an ad blocking DNS server, using Pi-Hole and Cloudflare DNS-over-HTTPS
+Set up your Raspberry Pi as an ad blocking DNS server, using Pi-Hole and Cloudflare DNS-over-HTTPS 🚀
 
 ## Executive summary
 
@@ -14,6 +14,8 @@ This:
 Becomes this:
 
 ![query log](gfx/query-log.png "Caught in the Pi-Hole")
+
+🥂🍾
 
 ### Contents
 

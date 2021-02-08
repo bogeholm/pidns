@@ -10,7 +10,7 @@ info() {
 }
 
 ok() {
-    printf "[${GREEN}OK${NOFORMAT}] $1\n"
+    printf "[ ${GREEN}OK${NOFORMAT} ] $1\n"
 }
 
 warning() {

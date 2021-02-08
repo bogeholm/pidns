@@ -20,9 +20,9 @@ Becomes this:
 ### Contents
 
 - [`raspberry/`](raspberry/) - general Raspberry Pi setup & tools
-- [`ufw/`](ufw/) - ressources for enabling the [`ufw`](https://help.ubuntu.com/community/UFW) firewall
+- [`ufw/`](ufw/) - ressources for enabling the [ufw](https://help.ubuntu.com/community/UFW) firewall
 - [`cloudflared/`](cloudflared/) -  scripts for downloading and installing the [Cloudflare Argo Tunnel client](https://github.com/cloudflare/cloudflared), and using this to proxy DNS on port 54
-- [`unifi/`](unifi/) - router and firewall setup. The specifics are for a [Unifi Security Gateway Pro 4](https://www.ui.com/unifi-routing/unifi-security-gateway-pro-4/), but the rules and settings themselves are general and can be applied on any capable router/firewall combo..
+- [`unifi/`](unifi/) - router and firewall setup. The specifics are for a [Unifi Security Gateway Pro 4](https://www.ui.com/unifi-routing/unifi-security-gateway-pro-4/), but the rules and settings themselves are general and can be applied on any capable router/firewall combo.
 
 ## F.A.Q.
 

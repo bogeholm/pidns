@@ -2,6 +2,12 @@
 
 Based on [Catching naughty devices](https://scotthelme.co.uk/catching-naughty-devices-on-my-home-network/)
 
+## Rule numbering
+
+> The custom rules created in the config.gateway.json cannot have duplicate rule numbers with the existing rules in the USG, or there will be a provisioning loop. It is recommended to put custom rules before the existing ruleset, as the lower number will win between two matching rules. ([source](https://help.ui.com/hc/en-us/articles/215458888-UniFi-USG-Advanced-Configuration-Using-config-gateway-json))
+
+The rules we create in [`config.gateway.json`](config.gateway.json) will start at `2000`, since rules created in the UI start at `3000`.
+
 ## Location of `config.gateway.json` 
 
 ### On Cloud Key, Gen 2
@@ -87,6 +93,7 @@ Feb  4 21:59:05 USG-Pro-4One kernel: [LAN_IN-4000-D]IN=eth0 OUT=eth2 MAC=<snip> 
 - [Location of `config.gateway.json`](https://help.ui.com/hc/en-us/articles/115004872967)
 - https://help.ui.com/hc/en-us/articles/115010254227-UniFi-USG-Firewall-How-to-Disable-InterVLAN-Routing
 - https://community.ui.com/questions/How-to-force-user-to-reconnect-after-changing-static-local-ip/333b5ad5-24f6-4f1d-b43c-dfefb6e5129c
+
 
 ## Other
 

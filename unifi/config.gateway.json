@@ -2,7 +2,7 @@
    "service": {
       "nat": {
          "rule": {
-            "4101": {
+            "2001": {
                "description": "Transparent DNS Redirect",
                "destination": {
                   "address": "!192.168.3.1",
@@ -17,7 +17,7 @@
                "protocol": "tcp_udp",
                "type": "destination"
             },
-            "4102": {
+            "2002": {
                "description": "Transparent DNS Redirect",
                "destination": {
                   "address": "!192.168.3.1",

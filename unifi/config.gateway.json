@@ -2,13 +2,28 @@
    "service": {
       "nat": {
          "rule": {
-            "4001": {
+            "4101": {
                "description": "Transparent DNS Redirect",
                "destination": {
                   "address": "!192.168.3.1",
                   "port": "53"
                },
                "inbound-interface": "eth0",
+               "inside-address": {
+                  "address": "192.168.9.20",
+                  "port": "53"
+               },
+               "log": "disable",
+               "protocol": "tcp_udp",
+               "type": "destination"
+            },
+            "4102": {
+               "description": "Transparent DNS Redirect",
+               "destination": {
+                  "address": "!192.168.3.1",
+                  "port": "53"
+               },
+               "inbound-interface": "eth0.3",
                "inside-address": {
                   "address": "192.168.9.20",
                   "port": "53"

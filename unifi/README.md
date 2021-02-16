@@ -4,7 +4,7 @@ Based on [Catching naughty devices](https://scotthelme.co.uk/catching-naughty-de
 
 ## Rule numbering
 
-> The custom rules created in the config.gateway.json cannot have duplicate rule numbers with the existing rules in the USG, or there will be a provisioning loop. It is recommended to put custom rules before the existing ruleset, as the lower number will win between two matching rules. ([source](https://help.ui.com/hc/en-us/articles/215458888-UniFi-USG-Advanced-Configuration-Using-config-gateway-json))
+> _The custom rules created in the `config.gateway.json` cannot have duplicate rule numbers with the existing rules in the USG, or there will be a provisioning loop. It is recommended to put custom rules before the existing ruleset, as the lower number will win between two matching rules._ ([source](https://help.ui.com/hc/en-us/articles/215458888-UniFi-USG-Advanced-Configuration-Using-config-gateway-json))
 
 The rules we create in [`config.gateway.json`](config.gateway.json) will start at `2000`, since rules created in the UI start at `3000`.
 

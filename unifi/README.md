@@ -55,7 +55,7 @@ chown unifi:unifi config.gateway.json
 ```yaml
 - Type: LAN IN  # Traffic entering the LAN interface
 - Description: Block DNS over TLS
-- Rule applied: after
+- Rule applied: After
 - Action: Drop
 - IPv4 protocol: All
 - Source: Network

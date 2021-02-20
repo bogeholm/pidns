@@ -53,7 +53,7 @@ pushd $TEMPDIR
     info "Downloading ${URL}..."
     curl --proto '=https' --tlsv1.2 -fL "${URL}" --output cloudflared
     chmod +x cloudflared
-    #cloudflared_downloaded_version=$(./cloudflared --version) TODO
+    cloudflared_downloaded_version=$(./cloudflared --version)
 
     if [[ $? != 0 ]]; then
         error "Could not run './cloudflared --version'"
@@ -63,8 +63,6 @@ pushd $TEMPDIR
 
     ok "$cloudflared_downloaded_version"
 popd
-
-DESTINATION="$HOME/Downloads" # TODO
 
 mv "${TEMPDIR}/cloudflared" "${DESTINATION}/cloudflared"
 rm -rf ${TEMPDIR}

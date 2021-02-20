@@ -93,7 +93,7 @@ Feb  4 21:59:05 USG-Pro-4One kernel: [LAN_IN-4000-D]IN=eth0 OUT=eth2 MAC=<snip> 
 - [Location of `config.gateway.json`](https://help.ui.com/hc/en-us/articles/115004872967)
 - https://help.ui.com/hc/en-us/articles/115010254227-UniFi-USG-Firewall-How-to-Disable-InterVLAN-Routing
 - https://community.ui.com/questions/How-to-force-user-to-reconnect-after-changing-static-local-ip/333b5ad5-24f6-4f1d-b43c-dfefb6e5129c
-
+- https://help.ui.com/hc/en-us/articles/115003173168-UniFi-UDM-USG-Introduction-to-Firewall-Rules
 
 ## Other
 

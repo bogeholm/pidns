@@ -1,16 +1,27 @@
-# Unifi setup
+# Firewall & router setup
 
-Based on [Catching naughty devices](https://scotthelme.co.uk/catching-naughty-devices-on-my-home-network/)
+Based on a [Unifi Security Gateway Pro 4](https://www.ui.com/unifi-routing/unifi-security-gateway-pro-4/) setup.
 
-## Rule numbering
+## Table of contents
+
+- [Rerouting all DNS requests](#rerouting-all-dns-requests)
+- [`config.gateway.json`](#config.gateway.json)
+- [DNS-over-TLS (DoT)](#dns-over-tls-(dot))
+- [Resources](#resources)
+
+## Rerouting all DNS requests
+
+## `config.gateway.json`
+
+### Rule numbering
 
 > _The custom rules created in the `config.gateway.json` cannot have duplicate rule numbers with the existing rules in the USG, or there will be a provisioning loop. It is recommended to put custom rules before the existing ruleset, as the lower number will win between two matching rules._ ([source](https://help.ui.com/hc/en-us/articles/215458888-UniFi-USG-Advanced-Configuration-Using-config-gateway-json))
 
 The rules we create in [`config.gateway.json`](config.gateway.json) will start at `2000`, since rules created in the UI start at `3000`.
 
-## Location of `config.gateway.json` 
+### Physical location of `config.gateway.json` 
 
-### On Cloud Key, Gen 2
+#### On a [Unifi Cloud Key, Gen 2](https://unifi-protect.ui.com/cloud-key-gen2)
 
 1. The `config.gateway.json` goes to `<unifi_base>/data/sites/<site_ID>` ([link](https://help.ui.com/hc/en-us/articles/215458888-UniFi-USG-Advanced-Configuration-Using-config-gateway-json))
 
@@ -27,28 +38,24 @@ So on a vanilla setup, that would be
 /usr/lib/unifi/data/sites/default/config.gateway.json
 ```
 
-### Ownership 
+### File ownership 
 
 The `config.gateway.json` must have `unifi:unifi` as owner
 
-#### To check
+- To check:
 
 ```bash
 ls -l
 ```
 
-#### To change
+ - To change:
 
 ```bash
 chown unifi:unifi config.gateway.json
 ```
 
-## DNS over TLS
 
-- https://community.ui.com/questions/Block-outgoing-traffic-I-dont-understand-/7008e42e-7b4f-4896-ad1c-24731ae9e05d
-- https://dnsprivacy.org/wiki/display/DP/DNS+Privacy+Clients#DNSPrivacyClients-Commandlineclients
-- https://www.knot-resolver.cz/download/
-- https://launchpad.net/ubuntu/bionic/+package/knot-dnsutils
+## DNS-over-TLS (DoT)
 
 ### Create blocking rule
 
@@ -85,9 +92,9 @@ tail -f /var/log/messages
 Feb  4 21:59:05 USG-Pro-4One kernel: [LAN_IN-4000-D]IN=eth0 OUT=eth2 MAC=<snip> SRC=192.168.3.52 DST=9.9.9.9 LEN=64 TOS=0x00 PREC=0x00 TTL=63 ID=0 DF PROTO=TCP SPT=50970 DPT=853 WINDOW=65535 RES=0x00 SYN URGP=0 
 ```
 
-# Documentation
+## Resources
 
-## Unifi
+### Unifi
 
 - The [`config.gateway.json` file](https://help.ui.com/hc/en-us/articles/215458888-UniFi-Advanced-USG-Configuration)
 - [Location of `config.gateway.json`](https://help.ui.com/hc/en-us/articles/115004872967)
@@ -95,10 +102,18 @@ Feb  4 21:59:05 USG-Pro-4One kernel: [LAN_IN-4000-D]IN=eth0 OUT=eth2 MAC=<snip> 
 - https://community.ui.com/questions/How-to-force-user-to-reconnect-after-changing-static-local-ip/333b5ad5-24f6-4f1d-b43c-dfefb6e5129c
 - https://help.ui.com/hc/en-us/articles/115003173168-UniFi-UDM-USG-Introduction-to-Firewall-Rules
 
-## Other
+### DNS-over-TLS
+
+- https://community.ui.com/questions/Block-outgoing-traffic-I-dont-understand-/7008e42e-7b4f-4896-ad1c-24731ae9e05d
+- https://dnsprivacy.org/wiki/display/DP/DNS+Privacy+Clients#DNSPrivacyClients-Commandlineclients
+- https://www.knot-resolver.cz/download/
+- https://launchpad.net/ubuntu/bionic/+package/knot-dnsutils
+
+### Other
 
 - https://gist.github.com/troyfontaine/a0a0098d6a8c333e5316ebf16db1c425
 - https://forum.netgate.com/topic/139457/transparently-intercept-and-redirect-dns-traffic-to-an-internal-dns/4
 - https://raw.githubusercontent.com/Sekhan/TheGreatWall/master/TheGreatWall.txt
 - https://www.reddit.com/r/Ubiquiti/comments/ii3lan/unifi_pihole_doing_it_right_with_usg/
 - https://fauxzen.com/force-all-dns-traffic-to-pi-hole/
+

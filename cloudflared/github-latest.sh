@@ -13,5 +13,8 @@ github_latest () {
     fi
 
     latest=$(curl -sSfL --proto '=https' --tlsv1.2 -H "${HEADER}" "${URL}" | jq .tag_name)
-    echo "${latest}"
+    # Remove leading and trailing quotes - https://stackoverflow.com/questions/9733338
+    latest="${latest%\"}"
+    latest="${latest#\"}"
+    echo ${latest}
 }

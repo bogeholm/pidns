@@ -1,6 +1,7 @@
 #! /usr/bin/env bash
 
 source common.sh
+source github-latest.sh
 source logging.sh
 
 while getopts ":v:d:a:" opt; do
@@ -11,11 +12,13 @@ while getopts ":v:d:a:" opt; do
         ;;
         v) VERSION="$OPTARG"
         ;;
-        \?) echo "Invalid option '$OPTARG'. Use: 'download.sh -a -d -v'"
+        \?) echo "Invalid option '$OPTARG'. Use: 'install-binary.sh [-a -d -v]'"
         exit 1
         ;;
     esac
 done
+
+TEMPDIR="tmp-$(uuidgen)"
 
 if [[ -z "${VERSION}" ]]; then
     VERSION=${DEFAULT_CLOUDFLARED_VERSION}
@@ -29,25 +32,40 @@ if [[ -z "${ARCHITECTURE}" ]]; then
     ARCHITECTURE=${DEFAULT_CLOUDFLARED_ARCHITECTURE}
 fi
 
+# Get latest version from GitHub if specified
+if [[ $(echo ${VERSION} | tr '[:upper:]' '[:lower:]') = "latest" ]]; then
+    info "Version: ${VERSION}"
+    info "Checking GitHub for latest release ..."
+    VERSION="$(github_latest)"
+fi
+
+if [[ -z "${VERSION}" ]]; then
+    error "Could not get latest release from GitHub"
+    exit 1
+fi
+
 info "Version: ${VERSION}"
 info "Destination: ${DESTINATION}"
 URL="https://github.com/cloudflare/cloudflared/releases/download/${VERSION}/cloudflared-${ARCHITECTURE}"
 
-mkdir tmp
-pushd tmp/
+mkdir -p $TEMPDIR
+pushd $TEMPDIR
     info "Downloading ${URL}..."
     curl --proto '=https' --tlsv1.2 -fL "${URL}" --output cloudflared
     chmod +x cloudflared
-    cloudflared_downloaded_version=$(./cloudflared --version)
+    #cloudflared_downloaded_version=$(./cloudflared --version) TODO
 
     if [[ $? != 0 ]]; then
         error "Could not run './cloudflared --version'"
+        rm -rf ${TEMPDIR}
         exit 1
     fi
 
     ok "$cloudflared_downloaded_version"
 popd
 
-mv tmp/cloudflared "${DESTINATION}/cloudflared"
-rm -r tmp
+DESTINATION="$HOME/Downloads" # TODO
+
+mv "${TEMPDIR}/cloudflared" "${DESTINATION}/cloudflared"
+rm -rf ${TEMPDIR}
 ok "Installed cloudflared to ${DESTINATION}"

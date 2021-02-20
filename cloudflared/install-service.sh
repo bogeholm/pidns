@@ -8,7 +8,7 @@ while getopts "b:" opt; do
         # Remove trailing slash, if any
         b) BINARY_LOCATION="${OPTARG%/}"
         ;;
-        \?) echo "Invalid option '$OPTARG'. Use: 'install.sh -b'"
+        \?) echo "Invalid option '$OPTARG'. Use: 'install-service.sh [-b]'"
         exit 1
         ;;
     esac

@@ -8,3 +8,6 @@ sudo reboot
 # Get a coffee or - preferably - a beer
 ./test.sh
 ```
+
+## Resources
+- https://blog.cloudflare.com/introducing-1-1-1-1-for-families/

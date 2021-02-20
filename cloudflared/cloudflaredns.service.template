@@ -4,7 +4,7 @@ Wants=network-online.target
 After=network.target network-online.target
  
 [Service]
-ExecStart={{CLOUDFLARED_LOCATION}}/cloudflared proxy-dns --port 54 --upstream https://1.1.1.1/.well-known/dns-query --upstream https://1.0.0.1/.well-known/dns-query
+ExecStart={{CLOUDFLARED_LOCATION}}/cloudflared proxy-dns --port {{DNS_LOCAL_PORT}} --upstream https://{{DNS_PRIMARY}}/.well-known/dns-query --upstream https://{{DNS_SECONDARY}}/.well-known/dns-query
 Restart=on-abort
  
 [Install]

@@ -81,3 +81,22 @@ success_symbol = "[❯❯](bold blue)"     # The "success_symbol" segment is bei
 [package]
 disabled = true
 ```
+
+### Miniconda Python
+
+```bash
+curl --proto '=https' --tlsv1.2 -sSf -o miniconda3.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-armv7l.sh
+
+# Compare with https://repo.anaconda.com/miniconda/
+md5sum miniconda3.sh
+
+# Do not use sudo
+bash miniconda3.sh
+
+# 0) Use cheat code 'Enter' + 'Space'
+# 1) Type 'yes'
+# 2) Install in /home/ubuntu/miniconda3 (default)
+
+# If not done by installer, add the following to ~/.bashrc
+export PATH="/home/ubuntu/miniconda3/bin:$PATH"
+```
